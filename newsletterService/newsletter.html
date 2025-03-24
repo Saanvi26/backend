@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Coding Digest</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #111827;
+      color: #e5e7eb;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .card {
+      background-color: #111827;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      border: 1px solid #1f2937;
+    }
+    .header {
+      background: linear-gradient(to right, #1e3a8a, #581c87);
+      padding: 24px 32px;
+      border-bottom: 1px solid #1f2937;
+    }
+    .header h1 {
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      margin: 0 0 8px 0;
+    }
+    .header p {
+      color: #93c5fd;
+      margin: 0;
+    }
+    .content {
+      padding: 32px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      color: white;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+    }
+    .icon {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+    }
+    .icon-trophy {
+      color: #eab308;
+    }
+    .contests-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .contest-card {
+      background-color: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .contest-platform {
+      color: #60a5fa;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .contest-name {
+      color: #e5e7eb;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .contest-time {
+      color: #9ca3af;
+      font-size: 14px;
+    }
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(to right, #1e3a8a, #581c87);
+      padding: 32px;
+      border-radius: 8px;
+      margin: 32px 0;
+    }
+    .cta-title {
+      color: white;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .cta-text {
+      color: #e5e7eb;
+      margin-bottom: 24px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(to right, #2563eb, #7c3aed);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .footer {
+      text-align: center;
+      padding-top: 20px;
+      color: #9ca3af;
+    }
+    @media (max-width: 768px) {
+      .contests-grid {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 12px;
+      }
+      .header {
+        padding: 20px;
+      }
+      .content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <h1>Weekly Coding Digest</h1>
+        <p>Your personalized update for {{weekRange}}</p>
+      </div>
+
+      <div class="content">
+        <div class="section">
+          <div class="section-header">
+            <span class="icon icon-trophy">🏆</span>
+            <h2 class="section-title">Upcoming Contests</h2>
+          </div>
+          <div class="contests-grid">
+            {{#each upcomingContests}}
+            <div class="contest-card">
+              <div class="contest-platform">{{platform}}</div>
+              <div class="contest-name">{{name}}</div>
+              <div class="contest-time">
+                <div>📅 {{date}}</div>
+                <div>⏰ {{time}}</div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <h2 class="cta-title">📊 View Your Complete Progress</h2>
+          <p class="cta-text">
+            Visit your personalized dashboard to track:
+            <br>• Your problem-solving statistics
+            <br>• Rating changes across platforms
+            <br>• Weekly achievements and milestones
+          </p>
+          <a href="https://www.myupdates.com" class="button">
+            View Your Dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Keep coding and stay awesome! 💻</p>
+      <p>To unsubscribe, <a href="{{unsubscribeLink}}" style="color: #60a5fa;">click here</a></p>
+    </div>
+  </div>
+</body>
+</html>
